@@ -1,6 +1,6 @@
-const Avatar = ({ width, src }) => {
+const Avatar = ({ width, src, className }) => {
   return (
-    <div className="cursor-pointer p-1">
+    <div className={`cursor-pointer p-1 ${className}`}>
       <div className="rounded-full p-1 hover:bg-gray-100">
         <img
           width={width}

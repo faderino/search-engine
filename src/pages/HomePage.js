@@ -5,7 +5,7 @@ import avatar from "../assets/avatar.png";
 import Avatar from "../components/Avatar";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
-import SearchForm from "../containers/SearchForm";
+import HomeSearch from "../containers/HomeSearch";
 
 const HomePage = () => {
   const { pathname } = useLocation();
@@ -28,7 +28,7 @@ const HomePage = () => {
 
         {/* Search Section */}
         <div className="p-5">
-          <SearchForm />
+          <HomeSearch />
         </div>
       </div>
 

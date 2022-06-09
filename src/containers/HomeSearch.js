@@ -9,7 +9,7 @@ import Button from "../components/Button";
 import SearchBar from "../components/SearchBar";
 import formatSearchQuery from "../utils/formatSearchQuery";
 
-const SearchForm = () => {
+const HomeSearch = () => {
   const { pathname } = useLocation();
   const navigate = useNavigate();
 
@@ -21,13 +21,21 @@ const SearchForm = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    const searchBy = pathname.substring(1) ? pathname.substring(1) : "search";
-    navigate(`/search-result?by=${searchBy}&q=${formatSearchQuery(search)}`);
+    navigate(
+      `/search-result/${
+        pathname.substring(1) || "normal"
+      }?q=${formatSearchQuery(search)}`
+    );
   };
 
   return (
     <form onSubmit={handleSubmit} className="mx-auto max-w-xl">
-      <SearchBar search={search} setSearch={setSearch}>
+      <SearchBar
+        search={search}
+        setSearch={setSearch}
+        withSearchIcon={true}
+        className="mt-2 mb-8 focus-within:shadow-md hover:shadow-md"
+      >
         {pathname === "/images" && (
           <CameraAltIcon className="cursor-pointer" color="action" />
         )}
@@ -51,4 +59,4 @@ const SearchForm = () => {
   );
 };
 
-export default SearchForm;
+export default HomeSearch;
