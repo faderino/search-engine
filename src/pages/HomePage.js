@@ -1,15 +1,11 @@
 import { useLocation } from "react-router-dom";
-import SearchIcon from "@mui/icons-material/Search";
-import CameraAltIcon from "@mui/icons-material/CameraAlt";
-import MicIcon from "@mui/icons-material/Mic";
 
 import logo from "../assets/googlelogo.png";
 import avatar from "../assets/avatar.png";
 import Avatar from "../components/Avatar";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
-import Button from "../components/Button";
-import SearchBar from "../components/SearchBar";
+import SearchForm from "../containers/SearchForm";
 
 const HomePage = () => {
   const { pathname } = useLocation();
@@ -32,26 +28,7 @@ const HomePage = () => {
 
         {/* Search Section */}
         <div className="p-5">
-          <form className="mx-auto max-w-xl">
-            {/* Searchbar */}
-            <SearchBar>
-              {pathname === "/images" && (
-                <CameraAltIcon className="cursor-pointer" color="action" />
-              )}
-              <MicIcon className="cursor-pointer" color="primary" />
-              {pathname !== "/" && (
-                <SearchIcon className="cursor-pointer" color="primary" />
-              )}
-            </SearchBar>
-
-            {/* Buttons */}
-            {pathname === "/" && (
-              <div className="flex justify-center space-x-3">
-                <Button type="submit">Google Search</Button>
-                <Button type="button">I'm Feeling Lucky</Button>
-              </div>
-            )}
-          </form>
+          <SearchForm />
         </div>
       </div>
 
