@@ -7,7 +7,7 @@ import MicIcon from "@mui/icons-material/Mic";
 
 import Button from "../components/Button";
 import SearchBar from "../components/SearchBar";
-import formatSearchQuery from "../utils/formatSearchQuery";
+import { formatSearchQuery } from "../utils/formatSearchQuery";
 
 const HomeSearch = () => {
   const { pathname } = useLocation();

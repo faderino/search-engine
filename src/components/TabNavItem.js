@@ -1,6 +1,6 @@
 import PropTypes from "prop-types";
 
-import formatSearchQuery from "../utils/formatSearchQuery";
+import { formatSearchQuery } from "../utils/formatSearchQuery";
 
 const TabNavItem = ({ title, search, searchBy, navigate, children }) => {
   const selected = () => {

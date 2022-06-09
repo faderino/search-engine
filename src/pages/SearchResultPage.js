@@ -18,6 +18,7 @@ import getCurrentPath from "../utils/getCurrentPath";
 import logo from "../assets/googlelogo.png";
 import SearchBar from "../components/SearchBar";
 import TabNavItem from "../components/TabNavItem";
+import Footer from "../components/Footer";
 
 const SearchResultPage = () => {
   const navigate = useNavigate();
@@ -35,7 +36,7 @@ const SearchResultPage = () => {
   };
 
   return (
-    <>
+    <div className="flex h-screen flex-col">
       {/* Header */}
       <div className="flex items-center px-8 py-5">
         <img
@@ -75,7 +76,7 @@ const SearchResultPage = () => {
       </div>
 
       {/* Tab Navigation */}
-      <nav className="border-b px-8">
+      <nav className="border-b pl-8 pr-8 xl:pl-44">
         <div className="flex space-x-6">
           <TabNavItem
             title="All"
@@ -107,8 +108,12 @@ const SearchResultPage = () => {
       </nav>
 
       {/* Search Result */}
-      <Outlet />
-    </>
+      <div className="ml-8 grow xl:ml-44">
+        <Outlet />
+      </div>
+
+      <Footer />
+    </div>
   );
 };
 

@@ -1,5 +1,3 @@
-const formatSearchQuery = (search) => {
+export const formatSearchQuery = (search) => {
   return search.split(" ").join("+");
 };
-
-export default formatSearchQuery;
