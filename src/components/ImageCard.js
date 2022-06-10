@@ -40,8 +40,8 @@ const ImageCard = ({ link, image }) => {
 };
 
 ImageCard.propTypes = {
-  link: PropTypes.string,
-  image: PropTypes.string,
+  link: PropTypes.object,
+  image: PropTypes.object,
 };
 
 export default ImageCard;
