@@ -1,3 +1,5 @@
+import PropTypes from "prop-types";
+
 const Avatar = ({ width, src, className }) => {
   return (
     <div className={`cursor-pointer p-1 ${className}`}>
@@ -11,6 +13,12 @@ const Avatar = ({ width, src, className }) => {
       </div>
     </div>
   );
+};
+
+Avatar.propTypes = {
+  width: PropTypes.number,
+  src: PropTypes.string,
+  className: PropTypes.string,
 };
 
 export default Avatar;

@@ -1,3 +1,5 @@
+import PropTypes from "prop-types";
+
 const NormalCard = ({ result }) => {
   return (
     <div className="mb-8 max-w-xl">
@@ -20,6 +22,10 @@ const NormalCard = ({ result }) => {
       </p>
     </div>
   );
+};
+
+NormalCard.propTypes = {
+  result: PropTypes.object,
 };
 
 export default NormalCard;

@@ -1,4 +1,5 @@
 import { Link, useLocation } from "react-router-dom";
+import PropTypes from "prop-types";
 import ViewComfyIcon from "@mui/icons-material/ViewComfy";
 
 const Navbar = ({ children }) => {
@@ -45,6 +46,10 @@ const Navbar = ({ children }) => {
       </nav>
     </header>
   );
+};
+
+Navbar.propTypes = {
+  children: PropTypes.node,
 };
 
 export default Navbar;

@@ -29,6 +29,7 @@ SearchBar.propTypes = {
   search: PropTypes.string,
   setSearch: PropTypes.func,
   withSearchIcon: PropTypes.bool,
+  className: PropTypes.string,
   children: PropTypes.node,
 };
 

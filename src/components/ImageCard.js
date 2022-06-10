@@ -1,9 +1,11 @@
+import PropTypes from "prop-types";
+
 const ImageCard = ({ link, image }) => {
   const splitTitle = (str) => {
     const [title, link] = str.split("... ");
     return [title + "...", link];
   };
-  
+
   return (
     <div className="mr-5 mb-5 inline-block">
       <div className="mb-1 h-[180px] cursor-pointer rounded border border-transparent bg-gray-100 hover:border hover:border-gray-200 hover:shadow-lg">
@@ -35,6 +37,11 @@ const ImageCard = ({ link, image }) => {
       </div>
     </div>
   );
+};
+
+ImageCard.propTypes = {
+  link: PropTypes.string,
+  image: PropTypes.string,
 };
 
 export default ImageCard;
