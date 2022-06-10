@@ -14,7 +14,7 @@ import SearchIcon from "@mui/icons-material/Search";
 
 import avatar from "../assets/avatar.png";
 import Avatar from "../components/Avatar";
-import getCurrentPath from "../utils/getCurrentPath";
+import { getCurrentPath } from "../utils/getCurrentPath";
 import logo from "../assets/googlelogo.png";
 import SearchBar from "../components/SearchBar";
 import TabNavItem from "../components/TabNavItem";
