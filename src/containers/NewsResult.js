@@ -1,14 +1,13 @@
 import { useSearch } from "../hooks/useSearch";
 
 import NewsCard from "../components/NewsCard";
+import Loading from "../components/Loading";
 
 const NewsResult = () => {
   const { loading, data } = useSearch("NEWS_SEARCH");
 
   if (loading) {
-    return (
-      <div className="absolute bottom-0 top-0 left-0 right-0 border-t-4 border-blue-500"></div>
-    );
+    return <Loading />;
   }
 
   return (

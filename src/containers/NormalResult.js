@@ -1,3 +1,4 @@
+import Loading from "../components/Loading";
 import NormalCard from "../components/NormalCard";
 import SearchStats from "../components/SearchStats";
 import { useSearch } from "../hooks/useSearch";
@@ -6,7 +7,7 @@ const NormalResult = () => {
   const { loading, data } = useSearch("NORMAL_SEARCH");
 
   if (loading) {
-    return <div></div>;
+    return <Loading />;
   }
 
   return (
