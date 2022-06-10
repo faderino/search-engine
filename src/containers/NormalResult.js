@@ -10,13 +10,13 @@ const NormalResult = () => {
   }
 
   return (
-    <>
-      <SearchStats className="py-4" total={data.total} ts={data.ts} />
+    <div className="py-8 pt-4">
+      <SearchStats className="mb-4" total={data.total} ts={data.ts} />
 
       {data.results.map((result, idx) => (
         <NormalCard key={idx} result={result} />
       ))}
-    </>
+    </div>
   );
 };
 

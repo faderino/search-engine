@@ -9,7 +9,7 @@ const NormalCard = ({ result }) => {
           <span className="text-gray-500">{result.cite.span}</span>
         </a>
         <a
-          className="text-xl font-medium text-blue-700 decoration-2 group-hover:underline"
+          className="text-xl font-medium text-blue-700 decoration-2 visited:text-purple-600 group-hover:underline"
           href={result.link}
         >
           {result.title}
