@@ -9,11 +9,12 @@ export const useSearch = (type) => {
 
   const [state, setState] = useState({ status: "pending", data: null });
 
-  const fn = type === "NORMAL_SEARCH" ? getNormalSearch : getNormalSearch;
+  const searchApi =
+    type === "NORMAL_SEARCH" ? getNormalSearch : getNormalSearch;
 
   useEffect(() => {
     setState((state) => ({ ...state, status: "pending" }));
-    fn(query)
+    searchApi(query)
       .then((data) => {
         setState({ status: "resolved", data });
         console.log(data);
@@ -21,7 +22,7 @@ export const useSearch = (type) => {
       .catch((error) =>
         setState((state) => ({ ...state, status: "rejected" }))
       );
-  }, [query, fn]);
+  }, [query, searchApi]);
 
   return { loading: state.status === "pending", data: state.data };
 };
