@@ -1,4 +1,5 @@
 import { useLocation } from "react-router-dom";
+import PropTypes from "prop-types";
 
 import ImageOutlinedIcon from "@mui/icons-material/ImageOutlined";
 import NewspaperOutlinedIcon from "@mui/icons-material/NewspaperOutlined";
@@ -44,6 +45,11 @@ const TabNavigation = ({ search, navigate }) => {
       </div>
     </nav>
   );
+};
+
+TabNavigation.propTypes = {
+  search: PropTypes.string,
+  navigate: PropTypes.func,
 };
 
 export default TabNavigation;
