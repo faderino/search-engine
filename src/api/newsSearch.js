@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const baseUrl = "https://google-search3.p.rapidapi.com/api/v1/search/q=";
+const baseUrl = "https://google-search3.p.rapidapi.com/api/v1/news/q=";
 
 const options = {
   method: "GET",
@@ -12,10 +12,10 @@ const options = {
   },
 };
 
-export const getNormalSearch = async (query) => {
+export const getNewsSearch = async (query) => {
   try {
     const { data } = await axios({ ...options, url: baseUrl + query });
-    return { results: data.results, total: data.total, ts: data.ts };
+    return data.entries;
   } catch (error) {
     console.error(error);
     throw error;
