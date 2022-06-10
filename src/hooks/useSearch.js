@@ -3,6 +3,7 @@ import { useSearchParams } from "react-router-dom";
 import { formatSearchQuery } from "../utils/formatSearchQuery";
 import { getNormalSearch } from "../api/normalSearch";
 import { getImageSearch } from "../api/imageSearch";
+import { getNewsSearch } from "../api/newsSearch";
 
 /**
  * Hooks for making request to google search API based on current query params URL
@@ -19,6 +20,9 @@ export const useSearch = (type) => {
   switch (type) {
     case "IMAGE_SEARCH":
       searchApi = getImageSearch;
+      break;
+    case "NEWS_SEARCH":
+      searchApi = getNewsSearch;
       break;
     case "NORMAL_SEARCH":
     default:
