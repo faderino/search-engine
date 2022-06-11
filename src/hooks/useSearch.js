@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { useSearchParams } from "react-router-dom";
+import { useNavigate, useSearchParams } from "react-router-dom";
 import { formatSearchQuery } from "../utils/formatSearchQuery";
 import { getNormalSearch } from "../api/normalSearch";
 import { getImageSearch } from "../api/imageSearch";
@@ -13,24 +13,31 @@ import { getNewsSearch } from "../api/newsSearch";
 export const useSearch = (type) => {
   const [searchParams] = useSearchParams();
   const query = formatSearchQuery(searchParams.get("q"));
+  const navigate = useNavigate();
 
   const [state, setState] = useState({ status: "pending", data: null });
 
-  let searchApi;
-  switch (type) {
-    case "IMAGE_SEARCH":
-      searchApi = getImageSearch;
-      break;
-    case "NEWS_SEARCH":
-      searchApi = getNewsSearch;
-      break;
-    case "NORMAL_SEARCH":
-    default:
-      searchApi = getNormalSearch;
-      break;
-  }
-
   useEffect(() => {
+    // If someone directly edit the query search params URL in the browser.
+    if (!query) {
+      navigate("/");
+      return;
+    }
+
+    let searchApi;
+    switch (type) {
+      case "IMAGE_SEARCH":
+        searchApi = getImageSearch;
+        break;
+      case "NEWS_SEARCH":
+        searchApi = getNewsSearch;
+        break;
+      case "NORMAL_SEARCH":
+      default:
+        searchApi = getNormalSearch;
+        break;
+    }
+
     setState((state) => ({ ...state, status: "pending" }));
     searchApi(query)
       .then((data) => {
@@ -40,7 +47,7 @@ export const useSearch = (type) => {
       .catch((error) =>
         setState((state) => ({ ...state, status: "rejected" }))
       );
-  }, [query, searchApi]);
+  }, [query, type, navigate]);
 
   return { loading: state.status === "pending", data: state.data };
 };
