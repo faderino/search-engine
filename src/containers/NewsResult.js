@@ -1,26 +1,10 @@
-import { useEffect, useState } from "react";
 import { useSearch } from "../hooks/useSearch";
 import { usePagination } from "../hooks/usePagination";
+import { useLocalStorage } from "../hooks/useLocalStorage";
 
 import NewsCard from "../components/NewsCard";
 import Loading from "../components/Loading";
 import Pagination from "../components/Pagination";
-
-const useLocalStorage = (key, defaultValue = "") => {
-  const [state, setState] = useState(() => {
-    const inLocalStorage = localStorage.getItem(key);
-    if (inLocalStorage) {
-      return JSON.parse(inLocalStorage);
-    }
-    return defaultValue;
-  });
-
-  useEffect(() => {
-    localStorage.setItem(key, JSON.stringify(state));
-  }, [state, key]);
-
-  return [state, setState];
-};
 
 const NewsResult = () => {
   const { loading, data } = useSearch("NEWS_SEARCH");
@@ -31,6 +15,10 @@ const NewsResult = () => {
     displayData: displayNews,
   } = usePagination(10, data);
   const [readingList, setReadingList] = useLocalStorage("readingList", []);
+
+  const isSaved = (newsId) => {
+    return Boolean(readingList.find((saved) => saved.id === newsId));
+  };
 
   if (loading || !displayNews) {
     return <Loading />;
@@ -43,9 +31,7 @@ const NewsResult = () => {
           key={news.id}
           news={news}
           setReadingList={setReadingList}
-          saved={
-            readingList.filter((saved) => saved.id === news.id).length === true
-          }
+          saved={isSaved(news.id)}
         />
       ))}
       <Pagination
