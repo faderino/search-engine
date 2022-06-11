@@ -24,6 +24,7 @@ const Pagination = ({
         .fill("")
         .map((_, idx) => (
           <div
+            key={idx}
             className={`b-8 group mr-2 inline-block w-8 rounded-full px-2 py-1 text-sm ${
               currentPage === idx + 1 ? "bg-gray-200" : ""
             }`}
