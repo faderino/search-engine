@@ -20,7 +20,12 @@ const NewsCard = ({ news, setReadingList, saved }) => {
   };
 
   const addToReadingList = (news) => {
-    setReadingList((readingList) => [...readingList, news]);
+    setReadingList((readingList) => {
+      if (readingList.find((saved) => saved.id === news.id)) {
+        return readingList;
+      }
+      return [...readingList, news];
+    });
   };
 
   const removeFromReadingList = (news) => {
@@ -53,9 +58,10 @@ const NewsCard = ({ news, setReadingList, saved }) => {
             <span>{formatDate(news.published)}</span>
           </div>
           <div
-            className={`z-50 space-x-2 ${
-              saved ? "" : "hidden group-hover:block"
-            }`}
+            // className={`z-50 space-x-2 ${
+            //   saved ? "" : "hidden group-hover:block"
+            // }`}
+            className="z-50 hidden space-x-2 group-hover:block"
           >
             {saved ? (
               <BookmarkIcon
