@@ -8,6 +8,8 @@ const SearchBar = ({
   withSearchIcon,
   className,
   children,
+  placeholder = "",
+  inputRef,
 }) => {
   return (
     <div
@@ -15,10 +17,12 @@ const SearchBar = ({
     >
       {withSearchIcon && <SearchIcon className="p-[2px]" color="action" />}
       <input
+        ref={inputRef}
         className={`grow focus:outline-none ${withSearchIcon ? "" : "pl-2"}`}
         type="text"
         value={search}
         onChange={(e) => setSearch(e.target.value)}
+        placeholder={placeholder}
       />
       {children}
     </div>
@@ -31,6 +35,7 @@ SearchBar.propTypes = {
   withSearchIcon: PropTypes.bool,
   className: PropTypes.string,
   children: PropTypes.node,
+  placeholder: PropTypes.string,
 };
 
 export default SearchBar;

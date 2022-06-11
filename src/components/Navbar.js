@@ -18,6 +18,10 @@ const Navbar = ({ children }) => {
       name: "News",
       path: "/news",
     },
+    {
+      name: "Reading List",
+      path: "/reading-list",
+    },
   ];
 
   return (

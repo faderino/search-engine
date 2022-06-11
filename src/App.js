@@ -5,6 +5,7 @@ import ImageResult from "./containers/ImageResult";
 import NewsResult from "./containers/NewsResult";
 import NormalResult from "./containers/NormalResult";
 import SearchResultPage from "./pages/SearchResultPage";
+import ReadingListPage from "./pages/ReadingListPage";
 
 const App = () => {
   return (
@@ -17,6 +18,7 @@ const App = () => {
         <Route path="images" element={<ImageResult />} />
         <Route path="news" element={<NewsResult />} />
       </Route>
+      <Route path="/reading-list" element={<ReadingListPage />} />
       <Route path="*" element={<div>404. Not found</div>} />
     </Routes>
   );
