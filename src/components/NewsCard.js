@@ -57,12 +57,7 @@ const NewsCard = ({ news, setReadingList, saved }) => {
             <span className="font-bold">·</span>
             <span>{formatDate(news.published)}</span>
           </div>
-          <div
-            // className={`z-50 space-x-2 ${
-            //   saved ? "" : "hidden group-hover:block"
-            // }`}
-            className="z-50 hidden space-x-2 group-hover:block"
-          >
+          <div className="z-50 hidden space-x-2 group-hover:block">
             {saved ? (
               <BookmarkIcon
                 color="primary"
@@ -79,16 +74,20 @@ const NewsCard = ({ news, setReadingList, saved }) => {
               />
             )}
 
-            <ShareIcon
-              color="disabled"
-              fontSize="small"
-              className="cursor-pointer"
-            />
-            <MoreVertIcon
-              color="disabled"
-              fontSize="small"
-              className="cursor-pointer"
-            />
+            <span className="hidden sm:inline-block">
+              <ShareIcon
+                color="disabled"
+                fontSize="small"
+                className="cursor-pointer"
+              />
+            </span>
+            <span className="hidden sm:inline-block">
+              <MoreVertIcon
+                color="disabled"
+                fontSize="small"
+                className="cursor-pointer"
+              />
+            </span>
           </div>
         </div>
       </div>

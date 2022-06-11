@@ -41,7 +41,7 @@ const Navbar = ({ children }) => {
         </ul>
 
         <div className="flex items-center">
-          <div className="h-10 w-10 cursor-pointer rounded-full p-2 hover:bg-gray-100">
+          <div className="hidden h-10 w-10 cursor-pointer rounded-full p-2 hover:bg-gray-100 sm:block">
             <ViewComfyIcon color="action" />
           </div>
 

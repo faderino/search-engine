@@ -4,17 +4,29 @@ const Footer = () => {
       <div className="border-b-2 px-8 py-4">Indonesia</div>
       <div className="flex flex-col items-center px-5 md:flex-row md:justify-between">
         <ul className="flex items-center">
-          <li className="cursor-pointer p-4 hover:underline">About</li>
-          <li className="cursor-pointer p-4 hover:underline">Advertising</li>
-          <li className="cursor-pointer p-4 hover:underline">Business</li>
-          <li className="cursor-pointer p-4 hover:underline">
+          <li className="cursor-pointer p-2 text-sm hover:underline sm:p-4 sm:text-base">
+            About
+          </li>
+          <li className="cursor-pointer p-2 text-sm hover:underline sm:p-4 sm:text-base">
+            Advertising
+          </li>
+          <li className="cursor-pointer p-2 text-sm hover:underline sm:p-4 sm:text-base">
+            Business
+          </li>
+          <li className="cursor-pointer p-2 text-sm hover:underline sm:p-4 sm:text-base">
             How Search works
           </li>
         </ul>
         <ul className="flex items-center">
-          <li className="cursor-pointer p-4 hover:underline">Privacy</li>
-          <li className="cursor-pointer p-4 hover:underline">Terms</li>
-          <li className="cursor-pointer p-4 hover:underline">Settings</li>
+          <li className="cursor-pointer p-2 text-sm hover:underline sm:p-4 sm:text-base">
+            Privacy
+          </li>
+          <li className="cursor-pointer p-2 text-sm hover:underline sm:p-4 sm:text-base">
+            Terms
+          </li>
+          <li className="cursor-pointer p-2 text-sm hover:underline sm:p-4 sm:text-base">
+            Settings
+          </li>
         </ul>
       </div>
     </div>

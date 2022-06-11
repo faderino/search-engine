@@ -19,7 +19,7 @@ const HomePage = () => {
       {/* Body */}
       <div className="grow">
         {/* Big Logo */}
-        <div className="relative mx-auto mt-[198px] w-fit">
+        <div className="relative mx-auto mt-28 w-fit sm:mt-[198px]">
           <img src={logo} alt="logo" />
           <span className="absolute right-1 bottom-0 text-base text-blue-700">
             {pathname.substring(1)}

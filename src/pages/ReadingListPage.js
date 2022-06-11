@@ -30,14 +30,14 @@ const ReadingListPage = () => {
   return (
     <div className="flex h-screen flex-col">
       {/* Header */}
-      <div className="flex items-center px-8 py-5">
+      <div className="flex items-center px-4 py-5 sm:px-8">
         <img
           src={logo}
           alt="logo"
           width={92}
           height={30}
           onClick={() => navigate("/")}
-          className="mr-8 cursor-pointer"
+          className="mr-4 cursor-pointer sm:mr-8"
         />
 
         <SearchForm
@@ -54,7 +54,9 @@ const ReadingListPage = () => {
       <nav className="border-b pl-8 pr-8 xl:pl-44">
         <div className="flex w-fit cursor-default items-center space-x-2 border-b-4 border-blue-500 pb-2 text-blue-500">
           <AutoStoriesIcon color="primary" fontSize="small" />
-          <span className="text-sm font-semibold">Reading list</span>
+          <span className="text-sm font-semibold">
+            Reading list {readingList.length ? `(${readingList.length})` : ""}
+          </span>
         </div>
       </nav>
 

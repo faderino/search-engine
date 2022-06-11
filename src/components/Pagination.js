@@ -10,45 +10,46 @@ const Pagination = ({
   const totalPage = Math.ceil(totalItems / itemsPerPage);
 
   return (
-    <div>
+    <div className="flex justify-between items-center max-w-xl">
       <button
         disabled={currentPage === 1}
         onClick={() => setCurrentPage(currentPage - 1)}
         className="mr-2"
       >
         <KeyboardArrowLeftOutlinedIcon
-          color={currentPage === 1 ? "disabled" : ""}
+          color={currentPage === 1 ? "disabled" : "primary"}
         />
       </button>
-      {Array(totalPage)
-        .fill("")
-        .map((_, idx) => (
-          <div
-            key={idx}
-            className={`b-8 group mr-2 inline-block w-8 rounded-full px-2 py-1 text-sm ${
-              currentPage === idx + 1 ? "bg-gray-200" : ""
-            }`}
-          >
-            <button
-              className="h-full w-full"
-              onClick={() => setCurrentPage(idx + 1)}
+      <div className="flex justify-between">
+        {Array(totalPage)
+          .fill("")
+          .map((_, idx) => (
+            <div
+              key={idx}
+              className="group text-sm"
             >
-              <span
-                className={`group-hover:underline ${
-                  currentPage === idx + 1 ? "font-bold" : ""
-                }`}
+              <button
+                className="mr-4 sm:mr-8 p-[1px]"
+                onClick={() => setCurrentPage(idx + 1)}
               >
-                {idx + 1}
-              </span>
-            </button>
-          </div>
-        ))}
+                <span
+                  className={`group-hover:underline text-blue-500 ${
+                    currentPage === idx + 1 ? "font-bold underline" : ""
+                  }`}
+                >
+                  {idx + 1}
+                </span>
+              </button>
+            </div>
+          ))}
+
+      </div>
       <button
         disabled={totalPage === currentPage}
         onClick={() => setCurrentPage(currentPage + 1)}
       >
         <NavigateNextOutlinedIcon
-          color={totalPage === currentPage ? "disabled" : ""}
+          color={totalPage === currentPage ? "disabled" : "primary"}
         />
       </button>
     </div>

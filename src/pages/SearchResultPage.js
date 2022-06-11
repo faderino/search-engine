@@ -24,14 +24,14 @@ const SearchResultPage = () => {
   return (
     <div className="flex h-screen flex-col">
       {/* Header */}
-      <div className="flex items-center px-8 py-5">
+      <div className="flex items-center px-4 py-5 sm:px-8">
         <img
           src={logo}
           alt="logo"
           width={92}
           height={30}
           onClick={() => navigate("/")}
-          className="mr-8 cursor-pointer"
+          className="mr-4 cursor-pointer sm:mr-8"
         />
 
         <SearchForm
