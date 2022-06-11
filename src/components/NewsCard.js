@@ -1,19 +1,32 @@
 import { useState } from "react";
 import PropTypes from "prop-types";
 
+import BookmarkIcon from "@mui/icons-material/Bookmark";
 import BookmarkBorderOutlinedIcon from "@mui/icons-material/BookmarkBorderOutlined";
 import ChromeReaderModeOutlinedIcon from "@mui/icons-material/ChromeReaderModeOutlined";
 import KeyboardArrowDownOutlinedIcon from "@mui/icons-material/KeyboardArrowDownOutlined";
 import KeyboardArrowUpOutlinedIcon from "@mui/icons-material/KeyboardArrowUpOutlined";
+import ShareIcon from "@mui/icons-material/Share";
+import MoreVertIcon from "@mui/icons-material/MoreVert";
 
 import { formatDate } from "../utils/formatDate";
 import SubNews from "./SubNews";
 
-const NewsCard = ({ news }) => {
+const NewsCard = ({ news, setReadingList, saved }) => {
   const [showSubNews, setShowSubNews] = useState(false);
 
   const trimTitle = (title, source) => {
     return title.replace(` - ${source}`, "");
+  };
+
+  const addToReadingList = (news) => {
+    setReadingList((readingList) => [...readingList, news]);
+  };
+
+  const removeFromReadingList = (news) => {
+    setReadingList((readingList) => [
+      ...readingList.filter((saved) => saved.id !== news.id),
+    ]);
   };
 
   return (
@@ -33,15 +46,44 @@ const NewsCard = ({ news }) => {
             {trimTitle(news.title, news.source.title)}
           </a>
         </h1>
-        <div className="flex items-center">
-          <span className="text-xs text-gray-500">{news.source.title}</span>
-          <span className="mx-2">·</span>
-          <span className="mr-2 text-xs text-gray-500">
-            {formatDate(news.published)}
-          </span>
-          <button className="z-50 hidden rounded-full group-hover:block">
-            <BookmarkBorderOutlinedIcon color="action" fontSize="small" />
-          </button>
+        <div className="flex items-center justify-between">
+          <div className="space-x-2 text-xs leading-6 text-gray-500">
+            <span>{news.source.title}</span>
+            <span className="font-bold">·</span>
+            <span>{formatDate(news.published)}</span>
+          </div>
+          <div
+            className={`z-50 space-x-2 ${
+              saved ? "" : "hidden group-hover:block"
+            }`}
+          >
+            {saved ? (
+              <BookmarkIcon
+                color="primary"
+                fontSize="small"
+                className="cursor-pointer"
+                onClick={() => removeFromReadingList(news)}
+              />
+            ) : (
+              <BookmarkBorderOutlinedIcon
+                color="disabled"
+                fontSize="small"
+                className="cursor-pointer"
+                onClick={() => addToReadingList(news)}
+              />
+            )}
+
+            <ShareIcon
+              color="disabled"
+              fontSize="small"
+              className="cursor-pointer"
+            />
+            <MoreVertIcon
+              color="disabled"
+              fontSize="small"
+              className="cursor-pointer"
+            />
+          </div>
         </div>
       </div>
 
@@ -79,6 +121,8 @@ const NewsCard = ({ news }) => {
 
 NewsCard.propTypes = {
   news: PropTypes.object,
+  setReadingList: PropTypes.func,
+  saved: PropTypes.bool,
 };
 
 export default NewsCard;
