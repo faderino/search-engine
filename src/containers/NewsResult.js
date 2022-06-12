@@ -23,12 +23,7 @@ const NewsResult = () => {
   };
 
   const addToReadingList = (news) => {
-    setReadingList((readingList) => {
-      if (readingList.find((saved) => saved.id === news.id)) {
-        return readingList;
-      }
-      return [...readingList, news];
-    });
+    setReadingList((readingList) => [...readingList, news]);
   };
 
   const removeFromReadingList = (news) => {
@@ -42,7 +37,7 @@ const NewsResult = () => {
   }
 
   return (
-    <div className="mr-8 py-8 pt-4">
+    <div className="mr-8 py-8 pt-4" data-testid="news-result">
       <nav className="mb-2 flex max-w-xl items-center justify-between">
         <h1 className="text-lg font-semibold">Headlines</h1>
         <button

@@ -1,7 +1,5 @@
 export const formatDate = (date) => {
-  if (typeof date === "string") {
-    date = new Date(date);
-  }
+  date = new Date(date);
 
   const options = {
     weekday: "long",

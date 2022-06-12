@@ -29,7 +29,12 @@ const HomeSearch = () => {
   };
 
   return (
-    <form onSubmit={handleSubmit} className="mx-auto max-w-xl">
+    <form
+      onSubmit={handleSubmit}
+      className="mx-auto max-w-xl"
+      // eslint-disable-next-line jsx-a11y/aria-role
+      role="search-form"
+    >
       <SearchBar
         search={search}
         setSearch={setSearch}

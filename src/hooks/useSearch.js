@@ -42,9 +42,8 @@ export const useSearch = (type) => {
     searchApi(query)
       .then((data) => {
         setState({ status: "resolved", data });
-        console.log(data);
       })
-      .catch((error) =>
+      .catch(() =>
         setState((state) => ({ ...state, status: "rejected" }))
       );
   }, [query, type, navigate]);

@@ -9,7 +9,10 @@ const ImageResult = () => {
     return <Loading />;
   }
   return (
-    <div className="-ml-4 grid grid-cols-2 pt-4 pb-8 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:-ml-40 xl:grid-cols-6">
+    <div
+      className="-ml-4 grid grid-cols-2 pt-4 pb-8 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:-ml-40 xl:grid-cols-6"
+      data-testid="image-result"
+    >
       {data.map(({ image, link }, idx) => (
         <ImageCard key={idx} image={image} link={link} />
       ))}

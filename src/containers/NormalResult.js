@@ -11,7 +11,7 @@ const NormalResult = () => {
   }
 
   return (
-    <div className="py-8 pt-4 pr-4">
+    <div className="py-8 pt-4 pr-4" data-testid="normal-result">
       <SearchStats className="mb-4" total={data.total} ts={data.ts} />
 
       {data.results.map((result, idx) => (
