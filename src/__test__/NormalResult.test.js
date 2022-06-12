@@ -19,7 +19,7 @@ describe("NormalResult", () => {
     );
 
     await waitForElementToBeRemoved(() => screen.queryByLabelText("loading"), {
-      timeout: 5000,
+      timeout: 10000,
     });
     const normalResult = screen.getByTestId("normal-result");
 

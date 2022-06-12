@@ -19,7 +19,7 @@ describe("ImageResult", () => {
     );
 
     await waitForElementToBeRemoved(() => screen.queryByLabelText("loading"), {
-      timeout: 5000,
+      timeout: 10000,
     });
     const imageResult = screen.getByTestId("image-result");
 

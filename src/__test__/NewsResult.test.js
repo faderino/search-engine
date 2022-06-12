@@ -46,7 +46,7 @@ describe("NewsResult", () => {
     );
 
     await waitForElementToBeRemoved(() => screen.queryByLabelText("loading"), {
-      timeout: 5000,
+      timeout: 10000,
     });
     const newsResult = screen.getByTestId("news-result");
 
@@ -64,7 +64,7 @@ describe("NewsResult", () => {
     );
 
     await waitForElementToBeRemoved(() => screen.queryByLabelText("loading"), {
-      timeout: 5000,
+      timeout: 10000,
     });
     const navigateButton = screen.getByRole("button", {
       name: "My Reading List",
@@ -87,7 +87,7 @@ describe("NewsResult", () => {
     );
 
     await waitForElementToBeRemoved(() => screen.queryByLabelText("loading"), {
-      timeout: 5000,
+      timeout: 10000,
     });
 
     const addToReadingListBtn = screen.getAllByTestId(
@@ -107,7 +107,7 @@ describe("NewsResult", () => {
     );
 
     await waitForElementToBeRemoved(() => screen.queryByLabelText("loading"), {
-      timeout: 5000,
+      timeout: 10000,
     });
     const addToReadingListBtn = screen.getAllByTestId(
       "BookmarkBorderOutlinedIcon"
