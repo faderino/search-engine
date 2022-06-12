@@ -8,7 +8,7 @@ const options = {
     "X-User-Agent": "desktop",
     "X-Proxy-Location": "US",
     // "X-RapidAPI-Key": process.env.REACT_APP_API_KEY,
-    "X-RapidAPI-Key": "b05cc36db9msh2398722a58985b4p16bcbejsn7da686532dfd",
+    "X-RapidAPI-Key": "a6a0660255msh085c77e9ed6b087p1e3358jsn6109f5612c6c",
     "X-RapidAPI-Host": "google-search3.p.rapidapi.com",
   },
 };
