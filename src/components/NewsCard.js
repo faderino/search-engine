@@ -12,26 +12,11 @@ import MoreVertIcon from "@mui/icons-material/MoreVert";
 import { formatDate } from "../utils/formatDate";
 import SubNews from "./SubNews";
 
-const NewsCard = ({ news, setReadingList, saved }) => {
+const NewsCard = ({ news, addToReadingList, removeFromReadingList, saved }) => {
   const [showSubNews, setShowSubNews] = useState(false);
 
   const trimTitle = (title, source) => {
     return title.replace(` - ${source}`, "");
-  };
-
-  const addToReadingList = (news) => {
-    setReadingList((readingList) => {
-      if (readingList.find((saved) => saved.id === news.id)) {
-        return readingList;
-      }
-      return [...readingList, news];
-    });
-  };
-
-  const removeFromReadingList = (news) => {
-    setReadingList((readingList) => [
-      ...readingList.filter((saved) => saved.id !== news.id),
-    ]);
   };
 
   return (
@@ -111,7 +96,10 @@ const NewsCard = ({ news, setReadingList, saved }) => {
         </button>
 
         {news.sub_articles.length ? (
-          <button onClick={() => setShowSubNews(!showSubNews)}>
+          <button
+            onClick={() => setShowSubNews(!showSubNews)}
+            data-testid="toggle-sub-news"
+          >
             {showSubNews ? (
               <KeyboardArrowUpOutlinedIcon />
             ) : (
@@ -126,7 +114,8 @@ const NewsCard = ({ news, setReadingList, saved }) => {
 
 NewsCard.propTypes = {
   news: PropTypes.object,
-  setReadingList: PropTypes.func,
+  addToReadingList: PropTypes.func,
+  removeFromReadingList: PropTypes.func,
   saved: PropTypes.bool,
 };
 

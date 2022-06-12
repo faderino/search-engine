@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 const ImageCard = ({ link, image }) => {
   const splitTitle = (str) => {
     const [title, link] = str.split("... ");
-    return [title + "...", link];
+    return [title + "...", link?.trim()];
   };
 
   return (
@@ -12,7 +12,7 @@ const ImageCard = ({ link, image }) => {
         <a href={link.href} target="_blank" rel="noreferrer">
           <img
             src={image.src}
-            alt={image.title}
+            alt={link.title}
             className="mx-auto h-full object-contain"
           />
         </a>

@@ -27,6 +27,12 @@ const ReadingListPage = () => {
     navigate(`/search-result/news?q=${formatSearchQuery(search)}`);
   };
 
+  const removeFromReadingList = (news) => {
+    setReadingList((readingList) => [
+      ...readingList.filter((saved) => saved.id !== news.id),
+    ]);
+  };
+
   return (
     <div className="flex h-screen flex-col">
       {/* Header */}
@@ -68,7 +74,7 @@ const ReadingListPage = () => {
               <SavedNewsCard
                 key={news.id}
                 news={news}
-                setReadingList={setReadingList}
+                removeFromReadingList={removeFromReadingList}
               />
             ))}
           </div>

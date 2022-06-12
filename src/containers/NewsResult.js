@@ -22,6 +22,21 @@ const NewsResult = () => {
     return Boolean(readingList.find((saved) => saved.id === newsId));
   };
 
+  const addToReadingList = (news) => {
+    setReadingList((readingList) => {
+      if (readingList.find((saved) => saved.id === news.id)) {
+        return readingList;
+      }
+      return [...readingList, news];
+    });
+  };
+
+  const removeFromReadingList = (news) => {
+    setReadingList((readingList) => [
+      ...readingList.filter((saved) => saved.id !== news.id),
+    ]);
+  };
+
   if (loading || !displayNews) {
     return <Loading />;
   }
@@ -41,7 +56,8 @@ const NewsResult = () => {
         <NewsCard
           key={news.id}
           news={news}
-          setReadingList={setReadingList}
+          addToReadingList={addToReadingList}
+          removeFromReadingList={removeFromReadingList}
           saved={isSaved(news.id)}
         />
       ))}

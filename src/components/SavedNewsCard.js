@@ -4,15 +4,9 @@ import BookmarkIcon from "@mui/icons-material/Bookmark";
 import ShareIcon from "@mui/icons-material/Share";
 import { formatDate } from "../utils/formatDate";
 
-const SavedNewsCard = ({ news, setReadingList }) => {
+const SavedNewsCard = ({ news, removeFromReadingList }) => {
   const trimTitle = (title, source) => {
     return title.replace(` - ${source}`, "");
-  };
-
-  const removeFromReadingList = (news) => {
-    setReadingList((readingList) => [
-      ...readingList.filter((saved) => saved.id !== news.id),
-    ]);
   };
 
   return (
@@ -57,7 +51,7 @@ const SavedNewsCard = ({ news, setReadingList }) => {
 
 SavedNewsCard.propTypes = {
   news: PropTypes.object,
-  setReadingList: PropTypes.func,
+  removeFromReadingList: PropTypes.func,
 };
 
 export default SavedNewsCard;

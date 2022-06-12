@@ -36,6 +36,7 @@ SearchBar.propTypes = {
   className: PropTypes.string,
   children: PropTypes.node,
   placeholder: PropTypes.string,
+  inputRef: PropTypes.object,
 };
 
 export default SearchBar;
