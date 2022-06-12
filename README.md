@@ -1,6 +1,30 @@
-# Getting Started with Create React App
+# Search Engine Project
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+A Google clone built with [React JS](https://reactjs.org/) and [Tailwind CSS](https://tailwindcss.com/)
+using [Google Search API by apigeek](https://rapidapi.com/apigeek/api/google-search3/).  
+
+## Deployed Link
+
+The live version of the project can be found here: https://search-engine-908c7.web.app
+
+## Tech used for this project
+- [React](https://reactjs.org/) is the framework used.
+- [React router](https://reactrouter.com/) for page navigation.
+- [TailwindCSS](https://tailwindcss.com/) for styling.
+- [Material UI Icons](https://mui.com/material-ui/material-icons/) for good looking icons.
+- [Web Storage API](https://developer.mozilla.org/en-US/docs/Web/API/Web_Storage_API) to store data.
+- [Jest](https://jestjs.io/) and [React Testing Library](https://testing-library.com/docs/react-testing-library/intro) for unit & integration test.
+
+## Screenshot Home page
+
+![home page](https://gcdnb.pbrd.co/images/8Z5NuXJ0hc3I.png?o=1)
+## Additional notes
+
+Tests result achieve on average > 97% coverage.  
+I use this script to run the tests and show the coverage `npm start -- --coverage --watchAll=false`.  
+On my case, it didn't work without the ```--watchAll=false``` command.
+
+## This Project was created with [Create React App](https://github.com/facebook/create-react-app)
 
 ## Available Scripts
 
